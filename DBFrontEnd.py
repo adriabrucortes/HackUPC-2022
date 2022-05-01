@@ -34,13 +34,11 @@ def stonks(Product_ID, Price, Location, Date):
 
     database = pd.read_csv('/home/martini/Escritorio/Vscode/sku.csv')
    
-    #return f"{sku}\n{geo}\n{date}"
     table=pd.merge(product, database, on='SKU')
     if len(table) == 0:
         return 'No es troba el producte'
     return f"Product ID: {Product_ID}\nPrice: {'%.2f'%price} €\nLocation: {Location}\nDate: {Date}\nID: {max_id}"
-    # IA_input = [database['SKU'][], database['Category'], database['Type'], database['brandId'], 
-    # database['lagerUnitQuantity'], database['Units'], database['trademark'], database['countryOfOrigin'], database['Group']]
+   
 
 demo = gr.Interface(
     fn=stonks,
